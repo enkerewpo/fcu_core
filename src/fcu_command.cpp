@@ -15,71 +15,71 @@ int main(int argc, char **argv) {
 
   while (ros::ok()) {
     // 获取从键盘输入的数据
-    printf("请输入指令：\n");
+    printf("Please input command:\n");
     ssize_t size = read(STDIN_FILENO, buf, sizeof(buf));
     if(size>0){
       if(size!=2){
-        printf("指令错误！\n");
+        printf("Command error!\n");
         continue;
       }
     }else{
-      printf("禁用指令\n");
+      printf("Command disabled!\n");
       ros::shutdown();
       return 0;
     }
     switch(buf[0]){
       case 'a':
-        printf("解锁\n");
+        printf("Unlock\n");
         cmd.data=1;
         command.publish(cmd);
         break;
       case 'd':
-        printf("锁定\n");
+        printf("Lock\n");
         cmd.data=2;
         command.publish(cmd);
         break;
       case 't':
-        printf("起飞\n");
+        printf("Takeoff\n");
         cmd.data=3;
         command.publish(cmd);
         break;
       case 'l':
-        printf("降落\n");
+        printf("Land\n");
         cmd.data=4;
         command.publish(cmd);
         break;
       case 'r':
-        printf("运行\n");
+        printf("Run\n");
         cmd.data=5;
         command.publish(cmd);
         break;
       case 's':
-        printf("停止\n");
+        printf("Stop\n");
         cmd.data=6;
         command.publish(cmd);
         break;
       case '1':
-        printf("位置点1\n");
+        printf("Position 1\n");
         cmd.data=7;
         command.publish(cmd);
         break;
       case '2':
-        printf("位置点2\n");
+        printf("Position 2\n");
         cmd.data=8;
         command.publish(cmd);
         break;
       case '3':
-        printf("位置点3\n");
+        printf("Position 3\n");
         cmd.data=9;
         command.publish(cmd);
         break;
       case '4':
-        printf("位置点4\n");
+        printf("Position 4\n");
         cmd.data=10;
         command.publish(cmd);
         break;
       default:
-        printf("非法指令！\n");
+        printf("Invalid command!\n");
         break;
     }
   }

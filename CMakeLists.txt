@@ -50,5 +50,8 @@ target_link_libraries(fcu_bridge_001 ${catkin_LIBRARIES} )
 add_executable(fcu_command src/fcu_command.cpp)
 target_link_libraries(fcu_command ${catkin_LIBRARIES} )
 
+add_executable(fcu_command_server src/fcu_command_server.cpp)
+target_link_libraries(fcu_command_server ${catkin_LIBRARIES} )
+
 add_executable(fcu_mission src/fcu_mission.cpp)
 target_link_libraries(fcu_mission ${catkin_LIBRARIES} )

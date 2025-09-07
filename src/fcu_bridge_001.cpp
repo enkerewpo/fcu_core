@@ -24,7 +24,7 @@
 #define BUF_SIZE 32768//数据缓存区大小
 #define BAUDRATE 460800 //虚拟串口波特率
 #define DRONE_PORT 333 //port
-static const char* DRONE_IP = "192.168.100.1"; //ip
+static const char* DRONE_IP = "192.168.0.100"; //ip
 static const char* USB_PORT = "/dev/ttyACM0"; //usb虚拟串口文件描述符
 static mavlink_channel_t mav_chan=MAVLINK_COMM_1;//MAVLINK_COMM_0虚拟串口发送，MAVLINK_COMM_1网口发送
 static bool offboard=false;//是否使用机载电脑

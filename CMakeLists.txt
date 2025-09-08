@@ -24,6 +24,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
   quadrotor_msgs
 )
 
+# Find jsoncpp library
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(JSONCPP REQUIRED jsoncpp)
+
 generate_messages(
   DEPENDENCIES
   std_msgs
@@ -42,7 +46,7 @@ catkin_package(
 
 include_directories(
 	${catkin_INCLUDE_DIRS}
-  ${EIGEN3_INCLUDE_DIRS}})
+  ${EIGEN3_INCLUDE_DIRS})
 
 add_executable(fcu_bridge_001 src/fcu_bridge_001.cpp)
 target_link_libraries(fcu_bridge_001 ${catkin_LIBRARIES} )
@@ -51,7 +55,9 @@ add_executable(fcu_command src/fcu_command.cpp)
 target_link_libraries(fcu_command ${catkin_LIBRARIES} )
 
 add_executable(fcu_command_server src/fcu_command_server.cpp)
-target_link_libraries(fcu_command_server ${catkin_LIBRARIES} )
+target_link_libraries(fcu_command_server ${catkin_LIBRARIES} ${JSONCPP_LIBRARIES})
+target_include_directories(fcu_command_server PRIVATE ${JSONCPP_INCLUDE_DIRS})
+target_compile_options(fcu_command_server PRIVATE ${JSONCPP_CFLAGS_OTHER})
 
 add_executable(fcu_mission src/fcu_mission.cpp)
 target_link_libraries(fcu_mission ${catkin_LIBRARIES} )

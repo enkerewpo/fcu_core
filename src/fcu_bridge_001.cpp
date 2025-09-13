@@ -29,9 +29,9 @@ static const char *USB_PORT = "/dev/ttyACM0";  // usb虚拟串口文件描述符
 static mavlink_channel_t mav_chan =
     MAVLINK_COMM_1; // MAVLINK_COMM_0虚拟串口发送，MAVLINK_COMM_1网口发送
 static bool offboard = false; //是否使用机载电脑
-static bool use_uwb = true;   //是否使用UWB基站
+static bool use_uwb = false;   //是否使用UWB基站
 static bool set_goal =
-    false; //远程电脑用于设置轨迹规划的目标，机载电脑应为false
+    true; //远程电脑用于设置轨迹规划的目标，机载电脑应为false
 static bool simple_target =
     true; //仅机载电脑配置：是否为简单目标点,simple_target表示目标只有位置，没有速度和加速度
 

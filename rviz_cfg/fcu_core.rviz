@@ -274,7 +274,7 @@ Visualization Manager:
   Global Options:
     Background Color: 0; 0; 0
     Default Light: true
-    Fixed Frame: uwb
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
